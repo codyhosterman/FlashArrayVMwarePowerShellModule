@@ -1359,7 +1359,7 @@ function update-faVvolVmVolumeGroup {
             [Parameter(Position=1)]
             [string]$purevip,
             
-            [Parameter(Position=2,ValueFromPipeline=$True)]
+            [Parameter(Position=2)]
             [System.Management.Automation.PSCredential]$faCreds,
 
             [Parameter(Position=3,ValueFromPipeline=$True)]
@@ -1377,23 +1377,20 @@ function update-faVvolVmVolumeGroup {
         {
             Write-Warning -Message "faCreds will be deprecated in a future version. Please use new-pfaarray and pass in only the flasharray parameter."
         }
-        if ($null -eq $flasharray)
-        {
-            if (($purevip -eq "") -or  ($null -eq $faCreds))
-            {
-                throw "Please use new-pfaarray and pass in the flasharray parameter. "
-            }
-        }
         $ErrorActionPreference = "stop"
     }
     Process{
         if ($null -eq $flasharray)
         {
+            if (($global:faRestSession -ne "") -and ($null -ne $global:faRestSession))
+            {
+                $faSession = $global:faRestSession
+            }
+            if (($purevip -eq "") -or  ($null -eq $faCreds))
+            {
+                throw "Please use new-pfaarray and pass in the flasharray parameter. "
+            }
             $flasharray = New-PfaArray -EndPoint $purevip -Credentials $faCreds -IgnoreCertificateError
-        }
-        if ($global:faRestSession -ne "")
-        {
-            $faSession = $global:faRestSession
         }
         else {
             $faSession = new-pureflasharrayRestSession -flasharray $flasharray
@@ -1522,6 +1519,8 @@ function get-vvolUuidFromHardDisk {
             [VMware.VimAutomation.ViCore.Types.V1.VirtualDevice.HardDisk]$vmdk
     )
     Begin {
+    }
+    Process {
         if ($vmdk.ExtensionData.Backing.backingObjectId -eq "")
         {
             throw "This is not a VVol-based hard disk."
@@ -1529,8 +1528,6 @@ function get-vvolUuidFromHardDisk {
         if ((($vmdk |Get-Datastore).ExtensionData.Info.vvolDS.storageArray.vendorId) -ne "PURE") {
             throw "This is not a Pure Storage FlashArray VVol disk"
         }
-    }
-    Process {
        $uuid = $vmdk.ExtensionData.Backing.backingObjectId
     }
     End {

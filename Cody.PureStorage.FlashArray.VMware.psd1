@@ -4,7 +4,7 @@
 	 Created by:   	Cody Hosterman
 	 Organization: 	Pure Storage, Inc.
 	 Filename:     	Cody.PureStorage.FlashArray.VMware.psd1
-	 Version:		1.2.0.0
+	 Version:		1.2.0.2
 	 Copyright:		2019 Pure Storage, Inc.
 	-------------------------------------------------------------------------
 	 Module Name: PureStoragePowerShell
@@ -29,7 +29,7 @@
 	RootModule = 'Cody.PureStorage.FlashArray.VMware.psm1'
 	
 	# Version number of this module; major.minor[.build[.revision]]
-	ModuleVersion = '1.2.0.0'
+	ModuleVersion = '1.2.0.2'
 	
 	# ID used to uniquely identify this module
 	GUID = 'af1115ad-2e1f-499e-ba6f-eb024c3da92f'
@@ -85,7 +85,7 @@
 	NestedModules = @()
 	
 	# Functions to export from this module
-	FunctionsToExport = 'get-faVolumeNameFromVvolUuid','new-pureflasharrayRestSession','remove-pureflasharrayRestSession','get-vmdkFromWindowsDisk','new-faHostFromVmHost','get-faHostFromVmHost','get-faHostGroupfromVcCluster','new-faHostGroupfromVcCluster','set-vmHostPureFaiSCSI','set-clusterPureFAiSCSI','get-faVolfromVMFS','new-faVolVmfs','add-faVolVmfsToCluster','set-faVolVmfsCapacity','get-faVolVmfsSnapshots','new-faVolVmfsSnapshot','new-faVolVmfsFromSnapshot','update-faVvolVmVolumeGroup','get-vvolUuidFromHardDisk','get-faSnapshotsFromVvolHardDisk','copy-faVvolVmdkToNewVvolVmdk','copy-faSnapshotToExistingVvolVmdk','copy-faSnapshotToNewVvolVmdk','copy-faVvolVmdkToExistingVvolVmdk','new-faSnapshotOfVvolVmdk','new-faVasaProvider'
+	FunctionsToExport = 'get-faVolumeNameFromVvolUuid','new-pureflasharrayRestSession','remove-pureflasharrayRestSession','get-vmdkFromWindowsDisk','new-faHostFromVmHost','get-faHostFromVmHost','get-faHostGroupfromVcCluster','new-faHostGroupfromVcCluster','set-vmHostPureFaiSCSI','set-clusterPureFAiSCSI','get-faVolfromVMFS','new-faVolVmfs','add-faVolVmfsToCluster','set-faVolVmfsCapacity','get-faVolVmfsSnapshots','new-faVolVmfsSnapshot','new-faVolVmfsFromSnapshot','update-faVvolVmVolumeGroup','get-vvolUuidFromHardDisk','get-faSnapshotsFromVvolHardDisk','copy-faVvolVmdkToNewVvolVmdk','copy-faSnapshotToExistingVvolVmdk','copy-faSnapshotToNewVvolVmdk','copy-faVvolVmdkToExistingVvolVmdk','new-faSnapshotOfVvolVmdk'
 	
 	# Cmdlets to export from this module
 	CmdletsToExport = '*'

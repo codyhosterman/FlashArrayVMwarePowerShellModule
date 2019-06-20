@@ -1,5 +1,7 @@
 # FlashArrayVMwarePowerShellModule
 
-Please go here for more information on the module:
+THIS HAS BEEN DEPRECATED IN FAVOR OF:
+
+https://github.com/PureStorage-OpenConnect/PureStorage.FlashArray.VMware
 
 https://www.codyhosterman.com/scripts-and-tools/pure-storage-powershell-vmware-module/
